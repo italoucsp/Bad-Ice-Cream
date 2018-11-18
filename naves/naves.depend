@@ -419,7 +419,7 @@
 	"Player.h"
 	"Hielo.h"
 
-1542431851 source:e:\python\naves\src\game.cpp
+1542562811 source:e:\python\naves\src\game.cpp
 	"Game.h"
 	<iostream>
 	<SFML/Graphics.hpp>
@@ -454,12 +454,12 @@
 	<iostream>
 	"Objetos.h"
 
-1542431730 source:e:\python\naves\src\player.cpp
+1542562705 source:e:\python\naves\src\player.cpp
 	"Player.h"
 	<iostream>
 	<SFML/Graphics.hpp>
 
-1542431730 e:\python\naves\include\player.h
+1542576880 e:\python\naves\include\player.h
 	<iostream>
 	<SFML/Graphics.hpp>
 	"Objeto.h"
@@ -473,7 +473,7 @@
 	<iostream>
 	<SFML/Graphics.hpp>
 
-1542431840 source:e:\python\naves\src\hielo.cpp
+1542562841 source:e:\python\naves\src\hielo.cpp
 	"Hielo.h"
 	<iostream>
 	<SFML/Graphics.hpp>

@@ -15,6 +15,8 @@ class Player:public Objeto
         int getPosy();
         void Move(int [15][15],int,int);
         void SpawnIce(int [15][15],int,int);
+        void DestroyIce(int [15][15],int,int);
+        void MoveSprite(int &,int &,bool &);
         void Draw(int [15][15],int,int,sf::RenderWindow&);
 
     private:
@@ -22,6 +24,7 @@ class Player:public Objeto
         bool up=false,left=false,right=false;
         bool down = true,isMove = false,isPressed = false;
         sf::Sprite s;
+        int cont = 0;
 };
 
 #endif // PLAYER_H
