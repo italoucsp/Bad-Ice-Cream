@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "Player.h"
 #include "Hielo.h"
+#include "Miscelanea.h"
 
 using namespace std;
 
@@ -14,6 +15,7 @@ class Game
         void Run(sf::RenderWindow&);
     private:
         int FPS = 60;
+        vector<Hielo> Hielos;
 
 };
 

@@ -1,19 +1,18 @@
-#ifndef HIELO_H
-#define HIELO_H
+#ifndef MISCELANEA_H
+#define MISCELANEA_H
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Objeto.h"
 
 using namespace std;
 
-class Hielo:public Objeto
+class Miscelanea:public Objeto
 {
     public:
-        Hielo(sf::Sprite&);
+        Miscelanea(sf::Sprite&);
         void Draw(int [15][15],int,int,sf::RenderWindow&);
 
     private:
         int posx,posy;
 };
-
-#endif // HIELO_H
+#endif // MISCELANEA_H

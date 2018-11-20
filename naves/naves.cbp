@@ -49,13 +49,17 @@
 			<Add library="sfml-system-d" />
 			<Add directory="C:/Users/CEMARQ/Downloads/SFML-2.5.1/lib" />
 		</Linker>
+		<Unit filename="include/Animation.h" />
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/Hielo.h" />
+		<Unit filename="include/Miscelanea.h" />
 		<Unit filename="include/Objeto.h" />
 		<Unit filename="include/Player.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Animation.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/Hielo.cpp" />
+		<Unit filename="src/Miscelanea.cpp" />
 		<Unit filename="src/Objeto.cpp" />
 		<Unit filename="src/Player.cpp" />
 		<Extensions>
