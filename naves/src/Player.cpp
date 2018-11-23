@@ -26,17 +26,18 @@ int Player::getPosx(){return posx/50;}
 
 int Player::getPosy(){return posy/50;}
 
-void Player::Controls(sf::RenderWindow &app,int m[15][15],vector<Hielo> &hielos){
+void Player::Controls(sf::RenderWindow &app,int m[15][15],vector<Hielo> &hielos,sf::Sprite &icehv){
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){app.close();}
-        if(cont%9==0){
-            if(left==false || right==false){if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){isMove=true;up=true;down=left=right=false;Move(m,getPosx(),getPosy());}}
-            if(left==false || right==false){if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){isMove=true;down=true;up=left=right=false;Move(m,getPosx(),getPosy());}}
-            if(up==false || down==false){if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){isMove=true;left=true;down=up=right=false;Move(m,getPosx(),getPosy());}}
-            if(up==false || down==false){if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){isMove=true;right=true;down=left=up=false;Move(m,getPosx(),getPosy());}}
+        if(cont2%10==0){
+            if(left==false || right==false && movement==false){if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){isMove=true;movement=true;up=true;down=left=right=false;Move(m,getPosx(),getPosy());}}
+            if(left==false || right==false && movement==false){if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){isMove=true;movement=true;down=true;up=left=right=false;Move(m,getPosx(),getPosy());}}
+            if(up==false || down==false && movement==false){if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){isMove=true;movement=true;left=true;down=up=right=false;Move(m,getPosx(),getPosy());}}
+            if(up==false || down==false && movement==false){if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){isMove=true;movement=true;right=true;down=left=up=false;Move(m,getPosx(),getPosy());}}
         }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::N)){SpawnIce(m,getPosx(),getPosy(),hielos);}
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::N)){SpawnIce(m,getPosx(),getPosy(),hielos,icehv);}
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::M)){DestroyIce(m,getPosx(),getPosy(),hielos);}
-        cont ++;
+        cont2 ++;
+        if(cont2==100){cont2=0;}
 }
 
 void Player::Move(int m[15][15],int x,int y){
@@ -52,29 +53,57 @@ void Player::Move(int m[15][15],int x,int y){
     }
 }
 
-void Player::SpawnIce(int m[15][15],int x,int y,vector<Hielo> &hielos){
+void Player::SpawnIce(int m[15][15],int x,int y,vector<Hielo> &hielos,sf::Sprite &icehv){
     if(Detector(m,x,y,up,down,left,right)==false){
         if(up==true){
             for(int i=y;i > 0;i--){
-                if(m[i-1][x]==0){m[i-1][x]=1;}
+                if(m[i-1][x]==0){
+                    m[i-1][x]=1;
+                    Hielo ice(icehv);
+                    ice.posx = x*50;
+                    ice.posy = y*50;
+                    ice.is_creating = true;
+                    hielos.push_back(ice);
+                }
                 else {break;}
             }
         }
         if(down==true){
             for(int i=y;i < 15;i++){
-                if(m[i+1][x]==0){m[i+1][x]=1;}
+                if(m[i+1][x]==0){
+                    m[i+1][x]=1;
+                    Hielo ice(icehv);
+                    ice.posx = x;
+                    ice.posy = y;
+                    ice.is_creating = true;
+                    hielos.push_back(ice);
+                }
                 else {break;}
             }
         }
         if(left==true){
             for(int i=x;i > 0;i--){
-                if(m[y][i-1]==0){m[y][i-1]=1;}
+                if(m[y][i-1]==0){
+                    m[y][i-1]=1;
+                    Hielo ice(icehv);
+                    ice.posx = x;
+                    ice.posy = y;
+                    ice.is_creating = true;
+                    hielos.push_back(ice);
+                }
                 else {break;}
             }
         }
         if(right==true){
             for(int i=x;i < 15;i++){
-                if(m[y][i+1]==0){m[y][i+1]=1;}
+                if(m[y][i+1]==0){
+                    m[y][i+1]=1;
+                    Hielo ice(icehv);
+                    ice.posx = x;
+                    ice.posy = y;
+                    ice.is_creating = true;
+                    hielos.push_back(ice);
+                }
                 else {break;}
             }
         }
@@ -129,17 +158,17 @@ void Player::MoveSprite(int &spx,int &spy,bool &isMove){
                 spx += 5;
         }
     }
-    if(spx == posx && spy+18 == posy){isMove = false;}
+    if(spx == posx && spy+18 == posy){movement = false;}
 }
 
 void Player::Draw(int m[15][15],int x,int y,sf::RenderWindow &app){
     posx = x*50;
     posy = y*50;
 
-    if(down==true && isMove==false)Animation(0,76,50,76,"largo",s,4);
-    if(up==true && isMove==false)Animation(0,0,50,76,"largo",s,4);
-    if(left==true && isMove==false)Animation(0,152,50,76,"largo",s,4);
-    if(right==true && isMove==false)Animation(0,228,50,76,"largo",s,4);
+    if(down==true && movement==false)Animation(0,76,50,76,"largo",s,4);
+    if(up==true && movement==false)Animation(0,0,50,76,"largo",s,4);
+    if(left==true && movement==false)Animation(0,152,50,76,"largo",s,4);
+    if(right==true && movement==false)Animation(0,228,50,76,"largo",s,4);
 
     MoveSprite(spx,spy,isMove);
     s.setPosition(spx,spy);

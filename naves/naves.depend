@@ -413,14 +413,14 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1542687988 e:\python\naves\include\game.h
+1542943104 e:\python\naves\include\game.h
 	<iostream>
 	<SFML/Graphics.hpp>
 	"Player.h"
 	"Hielo.h"
 	"Miscelanea.h"
 
-1542688026 source:e:\python\naves\src\game.cpp
+1542945705 source:e:\python\naves\src\game.cpp
 	"Game.h"
 	<iostream>
 	<SFML/Graphics.hpp>
@@ -456,13 +456,13 @@
 	<iostream>
 	"Objetos.h"
 
-1542689722 source:e:\python\naves\src\player.cpp
+1542946585 source:e:\python\naves\src\player.cpp
 	"Player.h"
 	"Hielo.h"
 	<iostream>
 	<SFML/Graphics.hpp>
 
-1542687988 e:\python\naves\include\player.h
+1542944774 e:\python\naves\include\player.h
 	<iostream>
 	<SFML/Graphics.hpp>
 	"Objeto.h"
@@ -477,21 +477,21 @@
 	<iostream>
 	<SFML/Graphics.hpp>
 
-1542562841 source:e:\python\naves\src\hielo.cpp
+1542946519 source:e:\python\naves\src\hielo.cpp
 	"Hielo.h"
 	<iostream>
 	<SFML/Graphics.hpp>
 
-1542662482 e:\python\naves\include\hielo.h
+1542946519 e:\python\naves\include\hielo.h
 	<iostream>
 	<SFML/Graphics.hpp>
 	"Objeto.h"
 
-1542680985 e:\python\naves\include\objeto.h
+1542945566 e:\python\naves\include\objeto.h
 	<iostream>
 	<SFML/Graphics.hpp>
 
-1542685465 source:e:\python\naves\src\objeto.cpp
+1542946286 source:e:\python\naves\src\objeto.cpp
 	"Objeto.h"
 	<iostream>
 	<SFML/Graphics.hpp>
