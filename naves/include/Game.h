@@ -12,11 +12,9 @@ class Game
 {
     public:
         sf::Sprite TtoS(char *,sf::Texture&);
-        void DrawIce(int [15][15],sf::RenderWindow&);
         void Run(sf::RenderWindow&);
     private:
         int FPS = 60;
-        vector<Hielo> Hielos;
 
 };
 

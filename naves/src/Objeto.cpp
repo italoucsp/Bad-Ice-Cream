@@ -46,18 +46,19 @@ void Objeto::Animation(int x,int y,int w,int h,string direct,sf::Sprite &s,int c
 }
 
 void Objeto::notLoopAnimation(int x,int y,int w,int h,string direct,sf::Sprite &s,int cant){
+    cantt = cant;
     if(direct == "largo"){
-        if(speed%209==0){
+        if(speed%9==0){
             s.setTextureRect(sf::IntRect(x+cont*w,y,w,h));
         }
     }
     if(direct == "alto"){
-        if(speed%209==0){
+        if(speed%9==0){
             s.setTextureRect(sf::IntRect(x,y+cont*h,w,h));
         }
     }
-    cont++;
-    if(cont == cant){cont = 0;}
+    if(cont == cant){cont=cant;}
+    else cont++;
     speed++;
     if(speed == cant*speed){speed=0;}
 }

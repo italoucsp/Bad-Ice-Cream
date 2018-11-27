@@ -13,6 +13,7 @@ class Objeto
         void Animation(int,int,int,int,string,sf::Sprite&,int);
         void notLoopAnimation(int,int,int,int,string,sf::Sprite&,int);
         int cont=0;
+        int cantt;
     protected:
         int spx,spy;
         sf::Sprite s;

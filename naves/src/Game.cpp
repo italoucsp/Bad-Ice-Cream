@@ -15,14 +15,6 @@ sf::Sprite Game::TtoS(char *rute,sf::Texture &t){
     return s;
 }
 
-void Game::DrawIce(int m[15][15],sf::RenderWindow &app){
-    for(int i=0;i<Hielos.size();i++){
-        Hielos[i].Draw(m,Hielos[i].posx,Hielos[i].posy,app);
-        if(Hielos[i].cont = 5){
-            Hielos.erase(Hielos.begin()+i+1);
-        }
-    }
-}
 void Game::Run(sf::RenderWindow &app){
     sf::Texture ba;
     sf::Texture pl;
@@ -74,7 +66,7 @@ void Game::Run(sf::RenderWindow &app){
         for(int y=0;y<15;y++){
             for(int x=0;x<15;x++){
                 if(nivel1[y][x]==2){
-                    helado.Controls(app,nivel1,Hielos,Icehove);
+                    helado.Controls(app,nivel1,Icehove);
                     helado.Draw(nivel1,x,y,app);
                 }
                 if(nivel1[y][x]==1){
@@ -86,7 +78,6 @@ void Game::Run(sf::RenderWindow &app){
                 if(nivel1[y][x]==9){
                     tronco1.Draw(nivel1,x,y,app);
                 }
-                DrawIce(nivel1,app);
             }
         }
         app.display();
